@@ -25,6 +25,8 @@ public class Shooting : MonoBehaviour
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.velocity = gameObject.transform.right * speed;
 
+            Physics.IgnoreCollision(projectile.GetComponent<Collider>(),gameObject.GetComponent<Collider>());
+
         }
     }
 }
