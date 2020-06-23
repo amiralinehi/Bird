@@ -63,26 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CollisionHandler.cs" />
     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Flying.cs" />
     <Compile Include="Assets\Object.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Scenes\OverTheShoulderAim\ActivateOnKeypress.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Scenes\Scripting\ScriptingExample.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Scenes\Trigger volumes\GenericTrigger.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Models\UnityCharacter\Scripts\CharacterMovement.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Models\UnityCharacter\Scripts\CharacterMovement2D.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Scripts\ActivateCamOnPlay.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Scripts\ActivateCameraWithDistance.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Scripts\ExampleHelpWindow.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Scripts\MixingCameraBlend.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Scripts\PlayerMove.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Scripts\PlayerMoveOnSphere.cs" />
-    <Compile Include="Assets\Samples\Cinemachine\2.5.0\Cinemachine Example Scenes\Shared\Scripts\PlayerMovePhysics.cs" />
-    <Compile Include="Assets\Shooting.cs" />
+    <Compile Include="Assets\Ship.cs" />
     <Compile Include="Assets\follow.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Sayantan\Props\Small\CruiseMissile\ReadMe.txt" />
      <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -102,8 +89,14 @@
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
@@ -116,12 +109,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.0b3\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
