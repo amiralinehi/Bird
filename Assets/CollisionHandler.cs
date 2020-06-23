@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public GameObject deathParticle;
+     
     void Start()
     {
         
@@ -15,7 +18,10 @@ public class CollisionHandler : MonoBehaviour
     void Update()
     {
         
+        
+
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -32,6 +38,7 @@ public class CollisionHandler : MonoBehaviour
 
             default:
                 //dead
+                deathParticle.SetActive(true);
                 Invoke("LoadFirtScene", .25f);
                 break;
         }
@@ -47,10 +54,10 @@ public class CollisionHandler : MonoBehaviour
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = currentScene + 1;
 
-        /*if(nextScene == SceneManager.sceneCountInBuildSettings)
-        {
-            nextScene = 0;
-        }*/
+       if(nextScene == SceneManager.sceneCountInBuildSettings)
+       
+         nextScene = 0;
+       
 
         SceneManager.LoadScene(nextScene);
     }

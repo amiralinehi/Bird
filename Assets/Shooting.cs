@@ -21,9 +21,9 @@ public class Shooting : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             GameObject projectile = Instantiate(prefab) as GameObject;
-            projectile.transform.position = transform.position + gameObject.transform.right;
+            projectile.transform.position = transform.position + gameObject.transform.forward;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            rb.velocity = gameObject.transform.right * speed;
+            rb.velocity = gameObject.transform.forward * speed;
 
             Physics.IgnoreCollision(projectile.GetComponent<Collider>(),gameObject.GetComponent<Collider>());
 

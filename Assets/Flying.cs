@@ -30,12 +30,12 @@ public class Flying : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
 
-            transform.Rotate(Vector3.forward * rotationThisFrame);
+            transform.Rotate(-Vector3.right * rotationThisFrame);
         }
         else if (Input.GetKey(KeyCode.D))
         {
 
-            transform.Rotate(-Vector3.forward * rotationThisFrame);
+            transform.Rotate(Vector3.right * rotationThisFrame);
         }
 
         GetComponent<Rigidbody>().freezeRotation = true;
