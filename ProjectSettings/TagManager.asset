@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - player
   - Friendly
+  - Bullet
+  - Ammo
   layers:
   - Default
   - TransparentFX

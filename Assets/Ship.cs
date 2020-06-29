@@ -7,7 +7,8 @@ public class Ship : MonoBehaviour
 {
 
     Rigidbody rigidBody;
-    //AudioSource audioSource;
+    
+    AudioSource audioSource;
     enum State { Alive, Dying, Transcending }
     State state = State.Alive;
 
@@ -15,12 +16,13 @@ public class Ship : MonoBehaviour
     [SerializeField] float mainThrust = 1f;
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip death;
- 
 
+    public float ammo = 0;
 
 
 
     public GameObject deathParticles;
+    [SerializeField] ParticleSystem mainEngineParticles;
 
 
     [SerializeField] float LevelLoadDelay = 2f;
@@ -30,6 +32,7 @@ public class Ship : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        audioSource=GetComponent<AudioSource>();
         prefab = Resources.Load("Bullet") as GameObject;
     }
 
@@ -41,21 +44,32 @@ public class Ship : MonoBehaviour
 
             RespondToThrust();
             RespondToRotate();
-            if (Input.GetButtonDown("Fire1"))
+
+            if (ammo > 0 )
             {
-                GameObject projectile = Instantiate(prefab) as GameObject;
-                projectile.transform.position = transform.position + gameObject.transform.forward;
-                Rigidbody rb = projectile.GetComponent<Rigidbody>();
-                rb.velocity = gameObject.transform.forward * speed;
-
-                Physics.IgnoreCollision(projectile.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
-
-
-
+                    Shooting();
+                    
             }
+            
+            
         }
     }
 
+    private void Shooting()
+    {
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject projectile = Instantiate(prefab) as GameObject;
+            projectile.transform.position = transform.position + gameObject.transform.forward;
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            rb.velocity = gameObject.transform.forward * speed;
+
+            Physics.IgnoreCollision(projectile.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
+            ammo--;
+
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -70,6 +84,17 @@ public class Ship : MonoBehaviour
             case "Friendly":
                 //do nothing
                 break;
+
+            case "Bullet":
+
+                break;
+
+            case "Ammo":
+
+                ammo = 3;
+                break;
+
+
             case "Finish":
                 //load next scene
                 StartSuccessSequencess();
@@ -117,8 +142,10 @@ public class Ship : MonoBehaviour
         else
 
         {
-            
-            
+
+            audioSource.Stop();
+            mainEngineParticles.Stop();
+
         }
 
     }
@@ -150,20 +177,20 @@ public class Ship : MonoBehaviour
 
         rigidBody.AddRelativeForce(Vector3.up * mainThrust);
 
-        /*if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(mainEngine);
             mainEngineParticles.Play();
 
-        }*/
+        }
 
     }
     void StartSuccessSequencess()
     {
         state = State.Transcending;
-        /*audioSource.Stop();
-        successParticles.Play();
-        audioSource.PlayOneShot(success);*/
+        audioSource.Stop();
+      //  successParticles.Play();
+      //  audioSource.PlayOneShot(success);
         Invoke("LoadNextLevel", LevelLoadDelay);
 
 
@@ -174,7 +201,7 @@ public class Ship : MonoBehaviour
     {
 
         state = State.Dying;
-        //audioSource.Stop();
+        audioSource.Stop();
         //audioSource.PlayOneShot(death);
 
         GameObject x= (GameObject)Instantiate(deathParticles, transform.position, Quaternion.identity);
@@ -186,6 +213,14 @@ public class Ship : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Ammo")
+        {
+            ammo = 3;
+            Destroy(other.gameObject, 1f);
+        }
+    }
 
 
 

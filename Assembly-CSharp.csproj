@@ -66,10 +66,10 @@
     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Object.cs" />
     <Compile Include="Assets\Ship.cs" />
+    <Compile Include="Assets\WallBang.cs" />
     <Compile Include="Assets\follow.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\Sayantan\Props\Small\CruiseMissile\ReadMe.txt" />
      <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
