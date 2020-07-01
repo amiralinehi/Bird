@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MainMenu.cs" />
+    <Compile Include="Assets\MusicPlayer.cs" />
     <Compile Include="Assets\Object.cs" />
     <Compile Include="Assets\Ship.cs" />
     <Compile Include="Assets\WallBang.cs" />
