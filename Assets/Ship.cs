@@ -82,7 +82,7 @@ public class Ship : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Friendly":
-                //do nothing
+                
                 break;
 
             case "Bullet":
@@ -96,12 +96,12 @@ public class Ship : MonoBehaviour
 
 
             case "Finish":
-                //load next scene
+                
                 StartSuccessSequencess();
                 break;
 
             default:
-                //dead
+                
                 StartDeathSequencess();
                 break;
         }
@@ -189,8 +189,6 @@ public class Ship : MonoBehaviour
     {
         state = State.Transcending;
         audioSource.Stop();
-      //  successParticles.Play();
-      //  audioSource.PlayOneShot(success);
         Invoke("LoadNextLevel", LevelLoadDelay);
 
 
@@ -202,7 +200,6 @@ public class Ship : MonoBehaviour
 
         state = State.Dying;
         audioSource.Stop();
-        //audioSource.PlayOneShot(death);
 
         GameObject x= (GameObject)Instantiate(deathParticles, transform.position, Quaternion.identity);
         x.GetComponent<ParticleSystem>().Play();
